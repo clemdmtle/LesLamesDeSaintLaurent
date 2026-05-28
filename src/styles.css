@@ -1,10 +1,65 @@
 /* You can add global styles to this file, and also import other style files */
+@config "../tailwind.config.js";
 @import "tailwindcss";
 
-@theme {
+:root {
     --color-orange-flash: #F77E38;
     --color-marron-medium: #6B5444;
     --color-marron-dark: #523A34;
     --color-beige-medium: #D4C4B0;
     --color-vert-bois: #464D32;
+    --color-fond: #FAF8F5;
+}
+
+@layer utilities {
+  .p-menubar.bg-fond {
+    background-color: var(--color-fond) !important;
+    justify-content: space-between !important;
+  }
+  .p-menubar .p-menubar-root-list {
+    margin-left: auto !important;
+  }
+  .p-menubar.text-marron-medium,
+  .p-menubar.text-marron-medium .p-menubar-item-content,
+  .p-menubar.text-marron-medium .p-menubar-item-link,
+  .p-menubar.text-marron-medium .p-menubar-item-label {
+    color: var(--color-marron-medium) !important;
+  }
+  .p-menubar.bg-fond .p-menubar-item-content,
+  .p-menubar.bg-fond .p-menubar-item-content .p-menubar-item-link,
+  .p-menubar.bg-fond .p-menubar-item-content .p-menubar-item-label {
+    color: var(--color-marron-medium) !important;
+    background-color: transparent !important;
+  }
+  .p-menubar.bg-fond .p-menubar-item:not(.p-disabled) > .p-menubar-item-content:hover,
+  .p-menubar.bg-fond .p-menubar-item.p-focus > .p-menubar-item-content,
+  .p-menubar.bg-fond .p-menubar-item-active > .p-menubar-item-content {
+    color: var(--color-marron-dark) !important;
+    background-color: rgba(107, 84, 68, 0.12) !important;
+  }
+  .p-menubar.bg-fond .p-menubar-item:not(.p-disabled) > .p-menubar-item-content:hover .p-menubar-item-link,
+  .p-menubar.bg-fond .p-menubar-item.p-focus > .p-menubar-item-content .p-menubar-item-link,
+  .p-menubar.bg-fond .p-menubar-item-active > .p-menubar-item-content .p-menubar-item-link {
+    color: var(--color-marron-dark) !important;
+  }
+  .p-menubar.bg-fond .p-menubar-submenu,
+  .p-menubar.bg-fond .p-menubar-submenu .p-menubar-item-content,
+  .p-menubar.bg-fond .p-menubar-submenu .p-menubar-item-content:hover {
+    background-color: var(--color-fond) !important;
+    color: var(--color-marron-medium) !important;
+  }
+  .p-menubar .p-menubar-root-list {
+    margin-left: auto;
+}
+
+    .p-menubar .logo {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    }
+
+    .p-menubar .logo img {
+    height: 2.5rem;
+    }
 }
