@@ -6,7 +6,7 @@ import { MenubarModule } from 'primeng/menubar';
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [MenubarModule],
+  imports: [MenubarModule, RouterLink],
   templateUrl: './navbar.html',
   styleUrl: './navbar.css',
 })
@@ -16,8 +16,10 @@ export class Navbar {
   ngOnInit(): void {
     this.items = [
       {
-        label: 'Accueil',
-        routerLink: '/'
+        label: 'Accueil', 
+        routerLink: '/',
+        routerlinkActiveOptions: { exact: true },
+        routerLInkActive: 'active-link'
       },
       {
         label: "L'Atelier",
@@ -37,13 +39,22 @@ export class Navbar {
         ]
       },
       {
-        label: 'Les Evènements'
+        label: 'Les Evènements',
+        routerLink: '/evenements',
+        routerlinkActiveOptions: { exact: true },
+        routerLInkActive: 'active-link'
       },
       {
-        label: 'A propos'
+        label: 'A propos',
+        routerLink: '/apropos',
+        routerlinkActiveOptions: { exact: true },
+        routerLInkActive: 'active-link'
       },
       {
-        label: 'Contact'
+        label: 'Contact',
+        routerLink: '/contact',
+        routerlinkActiveOptions: { exact: true },
+        routerLInkActive: 'active-link'
       }
     ]
     

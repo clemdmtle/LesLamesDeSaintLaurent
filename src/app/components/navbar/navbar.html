@@ -1,7 +1,6 @@
-<p-menubar [model]="items" class="bg-fond text-marron-medium">
+<p-menubar [model]="items">
+  <!-- Logo à gauche via le template "start" -->
   <ng-template pTemplate="start">
-    <a routerLink="/" class="logo">
-      <img src="/logo.avif" alt="Logo" />
-    </a>
+    <img src="logo.avif" alt="Logo" />
   </ng-template>
 </p-menubar>
