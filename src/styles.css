@@ -12,6 +12,14 @@
     --color-fond: #FAF8F5;
 }
 
+@layer base {
+  body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--color-marron-medium);
+    color: var(--color-marron-dark);
+  }
+}
+
 @layer utilities {
   .active-link {
     color: var(--color-orange-flash);
