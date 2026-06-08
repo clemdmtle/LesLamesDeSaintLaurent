@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 import { MenuItem } from 'primeng/api';
 import { MenubarModule } from 'primeng/menubar';
 
@@ -7,8 +7,8 @@ export const MENU_ITEMS: MenuItem[] = [
   {
     label: 'Accueil', 
     routerLink: '/',
-    routerlinkActiveOptions: { exact: true },
-    routerLInkActive: 'active-link'
+    routerLinkActiveOptions: { exact: true },
+    routerLinkActive: 'active-link'
   },
   {
     label: "L'Atelier",
@@ -21,36 +21,33 @@ export const MENU_ITEMS: MenuItem[] = [
       },
       {
         label: 'Les matières'
-      },
-      {
-        label: 'Les pièces disponibles'
       }
     ]
   },
   {
-    label: 'Les Evènements',
-    routerLink: '/evenements',
-    routerlinkActiveOptions: { exact: true },
-    routerLInkActive: 'active-link'
+    label: 'Les Pièces',
+    routerLink: '/pieces',
+    routerLinkActiveOptions: { exact: true },
+    routerLinkActive: 'active-link'
   },
   {
-    label: 'A propos',
-    routerLink: '/apropos',
-    routerlinkActiveOptions: { exact: true },
-    routerLInkActive: 'active-link'
+    label: 'Les Evènements',
+    routerLink: '/evenements',
+    routerLinkActiveOptions: { exact: true },
+    routerLinkActive: 'active-link'
   },
   {
     label: 'Contact',
     routerLink: '/contact',
-    routerlinkActiveOptions: { exact: true },
-    routerLInkActive: 'active-link'
+    routerLinkActiveOptions: { exact: true },
+    routerLinkActive: 'active-link'
   }
 ];
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [MenubarModule, RouterLink],
+  imports: [MenubarModule, RouterLink, RouterLinkActive],
   templateUrl: './navbar.html',
   styleUrl: './navbar.css',
 })

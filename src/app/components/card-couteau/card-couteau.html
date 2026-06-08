@@ -1,0 +1,20 @@
+<div class="pb-4 p-8 flex items-center justify-center bg-fond">
+            <p-card [style]="{ width: '25rem', height: '560px', overflow: 'hidden' }">
+                <ng-template #header>
+                    <img alt="Card" class="w-full" src={{image()}} />
+                </ng-template>
+                <div class="flex flex-col gap-2 text-md">
+                    <p>
+                    Matières :
+                </p>
+                <ul class="list-disc list-inside">
+                    <li class="m-2">Lame : {{lame()}}</li>
+                    <li class="m-2">Garde : {{garde()}}</li>
+                    <li class="m-2">Manche : {{manche()}}</li>
+                </ul>
+                <p>Etui : {{etui()}}</p>
+                <p>Prix : {{prix()}}</p>
+                </div>
+
+            </p-card>
+        </div>

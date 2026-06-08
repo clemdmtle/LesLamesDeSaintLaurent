@@ -18,7 +18,7 @@
         <div class="flex flex-col gap-2">
             <h4 class="font-semibold">Navigation</h4>
             @for (item of items; track $index) {
-                <p>{{ item.label }}</p>
+                <a href="{{item.routerLink}}" class="hover:underline">{{ item.label }}</a>
             }
         </div>
         <div class="flex flex-col gap-2">

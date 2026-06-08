@@ -1,0 +1,24 @@
+<h2 class="font-serif italic text-marron-dark text-4xl m-8 ml-2">Les pièces disponibles par gamme</h2>
+<div class="card">
+            <p-accordion class="bg-fond!" [value]="['0']">
+                @for (tab of tabs; track tab.title) {
+                    <p-accordion-panel class="bg-fond!" [value]="tab.value">
+                        <p-accordion-header class="bg-fond! font-lora! text-marron-medium!">{{ tab.title }}</p-accordion-header>
+                        <p-accordion-content class="bg-fond!">
+                            <div class="flex flex-row flex-wrap justify-center gap-10">
+                                @for (couteau of tab.couteaux; track couteau.id) {
+                                    <app-card-couteau
+                                        [image]="couteau.image"
+                                        [lame]="couteau.lame"
+                                        [garde]="couteau.garde"
+                                        [manche]="couteau.manche"
+                                        [etui]="couteau.etui"
+                                        [prix]="couteau.prix"
+                                    ></app-card-couteau>
+                                }
+                            </div>
+                        </p-accordion-content>
+                    </p-accordion-panel>
+                }
+            </p-accordion>
+        </div>
