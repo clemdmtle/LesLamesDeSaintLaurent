@@ -13,6 +13,13 @@
 }
 
 @layer base {
+  html {
+    html {
+      scroll-behavior: smooth; /* Pour un défilement fluide et élégant */
+      scroll-padding-top: 100px; /* Remplace 100px par la hauteur exacte de ta navbar + un peu de marge */
+    }
+  }
+  
   body {
     font-family: 'Inter', sans-serif;
     background-color: var(--color-marron-medium);

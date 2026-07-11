@@ -12,15 +12,22 @@ export const MENU_ITEMS: MenuItem[] = [
   },
   {
     label: "L'Atelier",
+    routerLink: '/atelier',
     items: [
       {
-        label: 'Les modèles'
+        label: 'Les modèles',
+        routerLink: '/atelier',
+        fragment: 'modeles',
       },
       {
-        label: 'Les étuis'
+        label: 'Les étuis',
+        routerLink: '/atelier',
+        fragment: 'etuis',
       },
       {
-        label: 'Les matières'
+        label: 'Les matières',
+        routerLink: '/atelier',
+        fragment: 'matieres',
       }
     ]
   },

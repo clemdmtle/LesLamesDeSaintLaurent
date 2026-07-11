@@ -6,6 +6,7 @@
   <ng-template pTemplate="item" let-item>
     <a
       [routerLink]="item.routerLink"
+      [fragment]="item.fragment"
       routerLinkActive="active-link"
       [routerLinkActiveOptions]="{ exact: true }"
       class="p-menubar-item-link"
