@@ -1,0 +1,17 @@
+<p-menubar [model]="items">
+  <ng-template pTemplate="start">
+    <img height="80" width="80" src="logo.png" alt="Logo" />
+  </ng-template>
+
+  <ng-template pTemplate="item" let-item>
+    <a
+      [routerLink]="item.routerLink"
+      [fragment]="item.fragment"
+      routerLinkActive="active-link"
+      [routerLinkActiveOptions]="{ exact: true }"
+      class="p-menubar-item-link"
+    >
+      {{ item.label }}
+    </a>
+  </ng-template>
+</p-menubar>

@@ -1,0 +1,34 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Display:wght@400;700&family=Playfair+Display:wght@400;700&family=Alegreya+SC:wght@400;700&family=Lora:wght@400;700&family=Inter:wght@400;700&family=Open+Sans:wght@400;700&display=swap');
+@import "tailwindcss";
+@config "../tailwind.config.js";
+
+:root {
+    --color-orange-flash: #F77E38;
+    --color-marron-medium: #6B5444;
+    --color-marron-dark: #523A34;
+    --color-beige-medium: #D4C4B0;
+    --color-vert-bois: #464D32;
+    --color-fond: #FAF8F5;
+}
+
+@layer base {
+  html {
+    html {
+      scroll-behavior: smooth; /* Pour un défilement fluide et élégant */
+      scroll-padding-top: 130px; /* Remplace 100px par la hauteur exacte de ta navbar + un peu de marge */
+    }
+  }
+  
+  body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--color-marron-medium);
+    color: var(--color-marron-dark);
+  }
+}
+
+@layer utilities {
+  .active-link {
+    color: var(--color-orange-flash);
+  }
+}

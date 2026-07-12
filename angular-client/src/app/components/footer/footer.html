@@ -1,0 +1,34 @@
+<div class="flex flex-col bg-orange-flash text-white p-6 mt-15">
+    <div class="flex flex-row justify-center gap-16 max-w-6xl mx-auto px-6">
+        <div>
+            <div class="flex items-center gap-2 text-xl">
+                <img src="logo.avif" alt="Logo de Les Lames de Saint-Laurent" class="h-12 w-auto">
+
+                <h3 class="font-alegreya text-3xl leading-none m-0">
+                    Les Lames de Saint-Laurent
+                </h3>
+            </div>
+
+            <p class="mt-2 leading-relaxed max-w-sm">
+                Couteaux artisanaux pour chasseurs exigeants et amoureux de la nature.
+                <br>
+                Chaque pièce est unique et forgée avec passion.
+            </p>
+        </div>
+        <div class="flex flex-col gap-2">
+            <h4 class="font-semibold">Navigation</h4>
+            @for (item of items; track $index) {
+                <a href="{{item.routerLink}}" class="hover:underline">{{ item.label }}</a>
+            }
+        </div>
+        <div class="flex flex-col gap-2">
+            <h4 class="font-semibold">Contact</h4>
+            <p>06 52 65 52 12</p>
+            <p>d.moinel@hotmail.fr</p>
+            <p>47 rue de Bertraménil, </p>
+            <p>88000 EPINAL</p>
+        </div>
+    </div>
+    <p-divider layout="horizontal" class="mx-4" />
+    <p class="flex justify-center">© 2026 Les Lames de Saint-Laurent. Tous droits réservés.</p>
+</div>
