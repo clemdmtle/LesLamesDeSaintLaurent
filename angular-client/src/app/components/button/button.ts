@@ -17,7 +17,8 @@ export enum ButtonTypeEnum {
 export class Button {
   texte = input<string>('');
   type = input<ButtonTypeEnum>(ButtonTypeEnum.PRIMARY);
-  lien = input<string>('');
+  lien = input<string>();
+  iconOnly = input<boolean>(false);
 
   readonly ButtonTypeEnum = ButtonTypeEnum;
 }

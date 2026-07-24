@@ -1,4 +1,10 @@
-<h2 class="font-serif italic text-marron-dark text-4xl m-8 ml-2">Les pièces disponibles par gamme</h2>
+<div class="flex flex-row justify-between items-center mr-15">
+    <h2 class="font-serif italic text-marron-dark text-4xl m-8 ml-2">Les pièces disponibles par gamme</h2>
+    <app-button [type]="ButtonTypeEnum.PRIMARY" [iconOnly]="true" (click)="openModal()">
+        <i class="pi pi-plus text-xl"></i>
+    </app-button>
+</div>
+
 <div class="card">
             <p-accordion class="bg-fond!" [value]="['0']">
                 @for (tab of tabs; track tab.title) {
@@ -22,3 +28,6 @@
                 }
             </p-accordion>
         </div>
+
+
+<app-modal-couteau [(visible)]="isModalVisible" (couteauCree)="couteauService.ajouter($event)"></app-modal-couteau>

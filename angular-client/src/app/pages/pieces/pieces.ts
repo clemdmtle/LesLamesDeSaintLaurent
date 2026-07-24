@@ -1,14 +1,24 @@
-import { Component } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { AccordionModule } from 'primeng/accordion';
 import { CardCouteau } from '../../components/card-couteau/card-couteau';
+import { ButtonTypeEnum, Button } from '../../components/button/button';
+import { ModalCouteau } from '../../components/modal-couteau/modal-couteau';
+import { CouteauService } from '../../services/couteau-service';
 
 @Component({
   selector: 'app-pieces',
-  imports: [AccordionModule, CardCouteau],
+  imports: [AccordionModule, CardCouteau, Button, ModalCouteau],
   templateUrl: './pieces.html',
   styleUrl: './pieces.css',
 })
 export class Pieces {
+  couteauService = inject(CouteauService);
+  isModalVisible = signal<boolean>(false);
+  readonly ButtonTypeEnum = ButtonTypeEnum;
+  openModal() {
+    this.isModalVisible.set(true);
+  }
+
   tabs = [
     {
       title : 'Bowie',

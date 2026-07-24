@@ -9,8 +9,8 @@ export const appConfig: ApplicationConfig = {
     provideBrowserGlobalErrorListeners(),
     provideZonelessChangeDetection(),
     provideRouter(routes, withInMemoryScrolling({
-        anchorScrolling: 'enabled',
-        scrollPositionRestoration: 'enabled'
+        anchorScrolling: 'disabled',
+        scrollPositionRestoration: 'disabled',
       }), withRouterConfig({
       onSameUrlNavigation: 'reload'
     })),

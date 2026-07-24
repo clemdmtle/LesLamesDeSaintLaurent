@@ -14,8 +14,8 @@ export class Accueil {
   texteEtui = "Les étuis sont réalisés faits main et s’adapteront parfaitement à vos nouveaux couteaux.";
   texteEvenements = "Je participe à beaucoup de salons afin de rencontrer de vous rencontrer et d'échanger sur ma passion, venez me rencontrer!";
 
-  lienCouteaux = "/couteaux";
-  lienEtuis = "/etuis";
+  lienCouteaux = "/atelier#modeles";
+  lienEtuis = "/atelier#etuis";
   lienEvenements = "/evenements";
   readonly ButtonTypeEnum = ButtonTypeEnum;
 }

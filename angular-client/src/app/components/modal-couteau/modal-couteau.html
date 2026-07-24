@@ -1,0 +1,58 @@
+<p-dialog [visible]="visible()" (visibleChange)="visible.set($event)" [modal]="true" header="Ajouter un couteau" [style]="{ width: '24rem' }">
+  <form [formGroup]="couteauForm" (ngSubmit)="save()">
+    <div class="flex flex-col gap-4">
+
+      <div class="flex flex-col gap-1.5">
+        <label for="gamme">Gamme</label>
+        <input pInputText id="gamme" formControlName="gamme" />
+        @if (couteauForm.get('gamme')?.invalid && couteauForm.get('gamme')?.touched) {
+          <small class="text-red-500">La gamme est requise.</small>
+        }
+      </div>
+
+      <div class="flex flex-col gap-1.5">
+        <label for="lame">Lame</label>
+        <input pInputText id="lame" formControlName="lame" />
+        @if (couteauForm.get('lame')?.invalid && couteauForm.get('lame')?.touched) {
+          <small class="text-red-500">La lame est requise.</small>
+        }
+      </div>
+
+      <div class="flex flex-col gap-1.5">
+        <label for="garde">Garde</label>
+        <input pInputText id="garde" formControlName="garde" />
+      </div>
+
+      <div class="flex flex-col gap-1.5">
+        <label for="manche">Manche</label>
+        <input pInputText id="manche" formControlName="manche" />
+      </div>
+
+      <div class="flex flex-col gap-1.5">
+        <label for="etui">Étui</label>
+        <input pInputText id="etui" formControlName="etui" />
+      </div>
+
+      <div class="flex items-center gap-2">
+        <p-checkbox formControlName="estDisponible" [binary]="true" inputId="estDisponible" />
+        <label for="estDisponible">Disponible</label>
+      </div>
+
+      @if (couteauForm.get('estDisponible')?.value) {
+        <div class="flex flex-col gap-1.5">
+          <label for="prix">Prix</label>
+          <input pInputText id="prix" type="number" formControlName="prix" />
+          @if (couteauForm.get('prix')?.invalid && couteauForm.get('prix')?.touched) {
+            <small class="text-red-500">Le prix doit être positif.</small>
+          }
+        </div>
+      }
+
+    </div>
+
+    <ng-template pTemplate="footer">
+      <button type="button" pButton severity="secondary" variant="outlined" (click)="close()">Annuler</button>
+      <button type="submit" pButton [disabled]="couteauForm.invalid">Enregistrer</button>
+    </ng-template>
+  </form>
+</p-dialog>
