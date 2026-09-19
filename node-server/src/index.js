@@ -3,21 +3,25 @@ const sequelize=require('./config/database');
 
 require('./models');
 
-
 const app=express();
 
 app.use(express.json());
 
+async function startServer() {
+    try {
+        await sequelize.authenticate();
+        console.log('Connexion à PostgreSQL réussie');
 
-sequelize.sync()
-.then(()=>{
-    console.log("Base synchronisée");
-})
-.catch(err=>{
-    console.error(err);
-});
+        await sequelize.sync();
+        console.log('Base synchronisée');
 
+        app.listen(3000, () => {
+            console.log('Serveur lancé sur http://localhost:3000');
+        });
 
-app.listen(3000,()=>{
-    console.log("Serveur lancé");
-});
+    } catch (error) {
+        console.error('Erreur de connexion à PostgreSQL :', error);
+    }
+}
+
+startServer();
