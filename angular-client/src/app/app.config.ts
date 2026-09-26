@@ -3,9 +3,11 @@ import { provideRouter, withInMemoryScrolling, withRouterConfig } from '@angular
 import { providePrimeNG } from 'primeng/config';
 import Lara from '@primeuix/themes/lara';
 import { routes } from './app.routes';
+import { provideHttpClient } from '@angular/common/http';
 
 export const appConfig: ApplicationConfig = {
   providers: [
+    provideHttpClient(),
     provideBrowserGlobalErrorListeners(),
     provideZonelessChangeDetection(),
     provideRouter(routes, withInMemoryScrolling({

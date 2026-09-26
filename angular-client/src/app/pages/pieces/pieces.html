@@ -7,7 +7,7 @@
 
 <div class="card">
             <p-accordion class="bg-fond!" [value]="['0']">
-                @for (tab of tabs; track tab.title) {
+                @for (tab of tabs(); track tab.title) {
                     <p-accordion-panel class="bg-fond!" [value]="tab.value">
                         <p-accordion-header class="bg-fond! font-lora! text-marron-medium!">{{ tab.title }}</p-accordion-header>
                         <p-accordion-content class="bg-fond!">

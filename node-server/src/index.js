@@ -5,7 +5,13 @@ require('./models');
 
 const app=express();
 
+const couteauRoutes = require('./routes/couteau.route');
+const { getCouteaux } = require('./services/couteau.service');
+
+app.use(cors());
 app.use(express.json());
+
+app.use('/api/couteaux', couteauRoutes);
 
 async function startServer() {
     try {
