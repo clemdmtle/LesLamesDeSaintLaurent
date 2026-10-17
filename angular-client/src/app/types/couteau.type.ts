@@ -1,6 +1,8 @@
+import { Gamme } from './gamme.enum';
+
 export type Couteau = {
     id: number;
-    gamme: string;
+    gamme: Gamme;
     lame: string;
     garde: string;
     manche: string;

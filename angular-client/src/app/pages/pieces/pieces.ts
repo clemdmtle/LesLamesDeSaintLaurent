@@ -4,6 +4,8 @@ import { CardCouteau } from '../../components/card-couteau/card-couteau';
 import { ButtonTypeEnum, Button } from '../../components/button/button';
 import { ModalCouteau } from '../../components/modal-couteau/modal-couteau';
 import { CouteauService } from '../../services/couteau-service';
+import { GAMMES } from '../../types/gamme.enum';
+import { AuthService } from '../../services/auth-service';
 
 @Component({
   selector: 'app-pieces',
@@ -13,6 +15,7 @@ import { CouteauService } from '../../services/couteau-service';
 })
 export class Pieces implements OnInit {
   couteauService = inject(CouteauService);
+  authService = inject(AuthService);
   isModalVisible = signal<boolean>(false);
   readonly ButtonTypeEnum = ButtonTypeEnum;
 
@@ -24,23 +27,19 @@ export class Pieces implements OnInit {
     this.isModalVisible.set(true);
   }
 
-  gammesDefinitions = [
-    { title: 'Bowie', value: 0 },
-    { title: 'Chasse', value: 1 },
-    { title: 'Casse-croute', value: 2 },
-    { title: 'Dépeceur', value: 3 },
-    { title: 'Puukko Typs', value: 4 },
-    { title: 'Couteau de cou', value: 5 },
-    { title: 'Pliant', value: 6 },
-    { title: 'Pièce unique', value: 7 },
-    { title: 'Couteaux vendus', value: 8 },
-  ];
+  readonly TITRE_VENDUS = 'Couteaux vendus';
 
-  tabs = computed(()=> {
-    const couteaux = this.couteauService.couteaux$();
-    return this.gammesDefinitions.map(def => ({
-      ...def,
-      couteaux: couteaux.filter(c => c.gamme == def.title)
-    }));
-  });
+gammesDefinitions = [...GAMMES, this.TITRE_VENDUS].map((title, value) => ({ title, value }));
+
+tabs = computed(() => {
+  const couteaux = this.couteauService.couteaux$();
+  return this.gammesDefinitions.map(def => ({
+    ...def,
+    couteaux: couteaux.filter(c =>
+      def.title === this.TITRE_VENDUS
+        ? !c.estDisponible
+        : c.gamme === def.title && c.estDisponible
+    )
+  }));
+});
 }

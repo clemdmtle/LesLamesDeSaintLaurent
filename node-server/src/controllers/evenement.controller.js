@@ -5,7 +5,7 @@ const getEvenements = async (req, res) => {
         const evenements = await evenementService.getEvenements();
         res.json(evenements); 
     } catch (error) {
-        res.status(error.status).json({ message: error.message });
+        res.status(error.status || 500).json({ message: error.message });
     }
 }
 
@@ -14,7 +14,7 @@ const createEvenement = async (req, res) => {
         const evenement = await evenementService.createEvenement(req.body);
         res.json(evenement);
     } catch (error) {
-        res.status(error.status).json({ message: error.message });
+        res.status(error.status || 500).json({ message: error.message });
     }
 }
 
@@ -23,7 +23,7 @@ const updateEvenement = async (req, res) => {
         const evenement = await evenementService.updateEvenement(req.params.id, req.body);
         res.json(evenement);
     } catch (error) {
-        res.status(error.status).json({ message: error.message });
+        res.status(error.status || 500).json({ message: error.message });
     }
 }
 
@@ -32,7 +32,7 @@ const deleteEvenement = async (req, res) => {
         const evenement = await evenementService.deleteEvenement(req.params.id);
         res.json(evenement);
     } catch (error) {
-        res.status(error.status).json({ message: error.message });
+        res.status(error.status || 500).json({ message: error.message });
     }
 }
 

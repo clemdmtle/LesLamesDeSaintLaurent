@@ -1,10 +1,16 @@
 <p-dialog [visible]="visible()" (visibleChange)="visible.set($event)" [modal]="true" header="Ajouter un couteau" [style]="{ width: '24rem' }">
-  <form [formGroup]="couteauForm" (ngSubmit)="save()">
+  <form [formGroup]="couteauForm">
     <div class="flex flex-col gap-4">
 
       <div class="flex flex-col gap-1.5">
         <label for="gamme">Gamme</label>
-        <input pInputText id="gamme" formControlName="gamme" />
+        <p-select
+          inputId="gamme"
+          formControlName="gamme"
+          [options]="gammes"
+          placeholder="Choisir une gamme"
+          appendTo="body"
+        />
         @if (couteauForm.get('gamme')?.invalid && couteauForm.get('gamme')?.touched) {
           <small class="text-red-500">La gamme est requise.</small>
         }
@@ -48,11 +54,31 @@
         </div>
       }
 
+      <div class="flex flex-col gap-1.5">
+        <label for="photos">Photos (3 maximum)</label>
+        <input
+          id="photos"
+          type="file"
+          accept="image/jpeg,image/png,image/webp,image/avif"
+          multiple
+          (change)="onFichiers($event)"
+        />
+        @for (f of fichiers(); track f.name) {
+          <small>{{ f.name }}</small>
+        }
+      </div>
+
+      @if (erreur()) {
+        <small class="text-red-500">{{ erreur() }}</small>
+      }
+
     </div>
 
     <ng-template pTemplate="footer">
       <button type="button" pButton severity="secondary" variant="outlined" (click)="close()">Annuler</button>
-      <button type="submit" pButton [disabled]="couteauForm.invalid">Enregistrer</button>
+      <button type="button" pButton [disabled]="couteauForm.invalid || envoiEnCours()" (click)="save()">
+        {{ envoiEnCours() ? 'Envoi...' : 'Enregistrer' }}
+      </button>
     </ng-template>
   </form>
 </p-dialog>

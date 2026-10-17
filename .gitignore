@@ -44,3 +44,7 @@ typings/
 # System files
 .DS_Store
 Thumbs.db
+
+#pour les photos :
+src/uploads/*
+!src/uploads/.gitkeep

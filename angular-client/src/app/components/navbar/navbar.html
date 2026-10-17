@@ -14,4 +14,12 @@
       {{ item.label }}
     </a>
   </ng-template>
+
+  <ng-template pTemplate="end">
+    @if (authService.estConnecte()) {
+      <button type="button" class="p-menubar-item-link cursor-pointer" (click)="deconnexion()">
+        Déconnexion
+      </button>
+    }
+  </ng-template>
 </p-menubar>

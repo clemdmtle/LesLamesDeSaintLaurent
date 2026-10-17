@@ -1,6 +1,8 @@
 import { Injectable, signal, inject } from '@angular/core';
 import { Couteau } from '../types/couteau.type';
 import { HttpClient } from '@angular/common/http';
+import { Gamme } from './../types/gamme.enum';
+import { tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -16,7 +18,7 @@ export class CouteauService {
       next: (data)=> {
         const couteaux: Couteau[] = data.map(c => ({
           id: c.id,
-          gamme: c.gamme,
+          gamme: c.gamme as Gamme,
           lame: c.lame,
           garde: c.garde,
           manche: c.manche,
@@ -31,7 +33,9 @@ export class CouteauService {
     });
   }
 
-  ajouter(couteau: Couteau) {
-    this.couteaux.update(list => [...list, couteau]);
+  creer(formData: FormData) {
+  return this.http
+    .post('http://localhost:3000/api/couteaux', formData, { withCredentials: true })
+    .pipe(tap(() => this.chargerCouteaux()));
   }
 }

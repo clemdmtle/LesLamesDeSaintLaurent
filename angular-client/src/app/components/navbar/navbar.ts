@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { Component, inject } from '@angular/core';
+import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { MenuItem } from 'primeng/api';
 import { MenubarModule } from 'primeng/menubar';
+import { AuthService } from '../../services/auth-service';
 
 export const MENU_ITEMS: MenuItem[] = [
   {
@@ -60,4 +61,14 @@ export const MENU_ITEMS: MenuItem[] = [
 })
 export class Navbar {
   items = MENU_ITEMS;
+
+  authService = inject(AuthService);
+  private router = inject(Router);
+
+  deconnexion() {
+    this.authService.logout().subscribe(() => {
+      this.authService.definirConnecte(false);
+      this.router.navigate(['/']);
+    });
+  }
 }
