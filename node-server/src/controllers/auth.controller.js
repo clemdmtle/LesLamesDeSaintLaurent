@@ -1,5 +1,13 @@
-const { login : loginService } = require('../services/auth.service');
+const { login : loginService, verifierSession } = require('../services/auth.service');
 
+const me = async(req, res) => {
+    try {
+        const user = await verifierSession(req.utilisateur.id);
+        res.json(user);
+    } catch (error) {
+        res.status(401).json({message: error.message});
+    }
+}
 const login = async (req, res) => {
     try {
         const { email, password } = req.body;
@@ -24,5 +32,6 @@ const logout = (req, res) => {
 
 module.exports = {
     login,
-    logout
+    logout,
+    me
 };

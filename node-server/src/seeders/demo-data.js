@@ -26,7 +26,7 @@ module.exports = {
         etui: 'Cuir cousu main',
         prix: 189.90,
         manche: 'Bois de noyer',
-        gamme: 'Tradition',
+        gamme: 'Bowie',
         vendu: false,
         utilisateur_id: 1
       },
@@ -39,7 +39,7 @@ module.exports = {
         etui: 'Etui en kydex',
         prix: 129.00,
         manche: 'Micarta noir',
-        gamme: 'Outdoor',
+        gamme: 'Bowie',
         vendu: false,
         utilisateur_id: 1
       },
@@ -52,7 +52,7 @@ module.exports = {
         etui: 'Cuir brut',
         prix: 249.50,
         manche: 'Corne de cerf',
-        gamme: 'Collection',
+        gamme: 'Bowie',
         vendu: true,
         utilisateur_id: 1
       }

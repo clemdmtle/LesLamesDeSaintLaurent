@@ -1,17 +1,26 @@
 const express=require('express');
+const cors = require('cors');
 const sequelize=require('./config/database');
+const cookieParser = require('cookie-parser');
 
 require('./models');
 
 const app=express();
 
 const couteauRoutes = require('./routes/couteau.route');
+const evenementRoutes = require('./routes/evenement.route');
 const { getCouteaux } = require('./services/couteau.service');
+const { getEvenements } = require('./services/evenement.service');
 
-app.use(cors());
+app.use(cors({
+    origin: 'hhtp://localhost:4200',
+    credentials: true
+}));
+app.use(cookieParser());
 app.use(express.json());
 
 app.use('/api/couteaux', couteauRoutes);
+app.use('/api/evenements', evenementRoutes);
 
 async function startServer() {
     try {

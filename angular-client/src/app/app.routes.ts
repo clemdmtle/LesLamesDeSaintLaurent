@@ -5,5 +5,6 @@ export const routes: Routes = [
     {path: 'atelier', loadComponent: () => import('./pages/atelier/atelier').then(m => m.Atelier), title: 'Atelier'},
     {path: 'pieces', loadComponent: () => import('./pages/pieces/pieces').then(m => m.Pieces), title: 'Les Pièces'},
     {path: 'evenements', loadComponent: () => import('./pages/evenements/evenements').then(m => m.Evenements), title: 'Les Evènements'},
-    {path: 'contact', loadComponent: () => import('./pages/contact/contact').then(m => m.Contact), title: 'Contact'}
+    {path: 'contact', loadComponent: () => import('./pages/contact/contact').then(m => m.Contact), title: 'Contact'},
+    {path: 'connexion', loadComponent: () => import('./pages/connexion/connexion').then(m => m.Connexion), title: 'Connexion'}
 ];

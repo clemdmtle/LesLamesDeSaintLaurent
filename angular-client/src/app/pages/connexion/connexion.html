@@ -1,0 +1,45 @@
+<!-- src/app/pages/connexion/connexion.html -->
+<div class="flex justify-center items-center min-h-[60vh]">
+    <form
+        class="flex flex-col gap-4 w-full max-w-sm p-8 bg-fond rounded-2xl"
+        (ngSubmit)="seConnecter()"
+    >
+        <h2 class="font-serif italic text-marron-dark text-3xl mb-4">Connexion</h2>
+
+        <label class="flex flex-col gap-1">
+            Email
+            <input
+                type="email"
+                name="email"
+                [ngModel]="email()"
+                (ngModelChange)="email.set($event)"
+                required
+                class="border rounded-lg px-3 py-2"
+            />
+        </label>
+
+        <label class="flex flex-col gap-1">
+            Mot de passe
+            <input
+                type="password"
+                name="password"
+                [ngModel]="password()"
+                (ngModelChange)="password.set($event)"
+                required
+                class="border rounded-lg px-3 py-2"
+            />
+        </label>
+
+        @if (erreur()) {
+            <p class="text-red-600 text-sm">{{ erreur() }}</p>
+        }
+
+        <button
+            type="submit"
+            [disabled]="chargement()"
+            class="bg-marron-medium text-white rounded-lg py-2 mt-2 disabled:opacity-50"
+        >
+            {{ chargement() ? 'Connexion...' : 'Se connecter' }}
+        </button>
+    </form>
+</div>

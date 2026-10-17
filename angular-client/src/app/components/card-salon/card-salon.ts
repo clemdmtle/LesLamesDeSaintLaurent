@@ -10,14 +10,15 @@ import { Tag } from '../tag/tag';
   styleUrl: './card-salon.css',
 })
 export class CardSalon {
-  date = input<string>("12 juin 2026");
-  heure= input<string>("9h - 18h");
-  ville = input<string>("Epinal");
+  date = input<string>("");
+  heure= input<string>("");
+  ville = input<string>("");
   titre = input<string>();
   description = input<string>();
   images = signal<{ itemImageSrc: string; thumbnailImageSrc: string }[]>([]);
   image = input<string>("/evenement-accueil.jpg");
   image2 = input<string>("/couteau-accueil.avif");
+  statut = input<string>("futur");
 
   ngOnInit(){
     this.images.set([
