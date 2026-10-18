@@ -71,6 +71,14 @@ const deleteCouteau = async (id) => {
     await couteau.destroy();
     supprimerFichiers(photos);
 };
+
+const marquerVendu = async (id) => {
+    const couteau = await Couteau.findByPk(id);
+    if (!couteau) {
+        throw erreur('Couteau non trouvé', 404);
+    }
+    return await couteau.update({ vendu: true, prix: null });
+};
  
 module.exports = {
     getCouteaux,
@@ -78,4 +86,5 @@ module.exports = {
     updateCouteau,
     deleteCouteau,
     supprimerFichiers,
+    marquerVendu,
 };

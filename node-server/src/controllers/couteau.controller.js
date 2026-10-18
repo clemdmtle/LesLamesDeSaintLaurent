@@ -81,9 +81,19 @@ const deleteCouteau = async (req, res) => {
     }
 };
 
+const marquerVendu = async (req, res) => {
+    try {
+        const couteau = await couteauService.marquerVendu(req.params.id);
+        res.json(couteau);
+    } catch (error) {
+        res.status(error.status || 500).json({ message: error.message });
+    }
+};
+
 module.exports = {
     getCouteaux,
     createCouteau,
     updateCouteau,
     deleteCouteau,
+    marquerVendu,
 };

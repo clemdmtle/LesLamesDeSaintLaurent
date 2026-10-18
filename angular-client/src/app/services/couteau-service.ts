@@ -59,4 +59,10 @@ export class CouteauService {
       .delete(`${API}/${id}`, { withCredentials: true })
       .pipe(tap(() => this.chargerCouteaux()));
   }
+
+  marquerVendu(id: number) {
+  return this.http
+    .patch(`${API}/${id}/vendu`, {}, { withCredentials: true })
+    .pipe(tap(() => this.chargerCouteaux()));
+  }
 }

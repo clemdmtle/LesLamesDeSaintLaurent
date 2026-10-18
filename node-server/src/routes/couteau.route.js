@@ -8,5 +8,6 @@ router.get('/', couteauController.getCouteaux);
 router.post('/', verifierToken, upload.array('photos', 3), couteauController.createCouteau);
 router.put('/:id', verifierToken, upload.array('photos', 3), couteauController.updateCouteau);
 router.delete('/:id', verifierToken, couteauController.deleteCouteau);
+router.patch('/:id/vendu', verifierToken, couteauController.marquerVendu);
 
 module.exports = router;

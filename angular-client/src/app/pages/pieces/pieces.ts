@@ -46,6 +46,15 @@ export class Pieces implements OnInit {
     });
   }
 
+  rendreDisponibleCouteau(couteau: Couteau){
+    if (!confirm(`Marquer ce couteau (${couteau.gamme}, lame ${couteau.lame}) comme vendu ? Son prix sera effacé.`)) {
+      return;
+    }
+    this.couteauService.marquerVendu(couteau.id).subscribe({
+      error: (err) => alert(err.error?.message || 'Erreur lors de la mise à jour.'),
+    });
+  }
+
   readonly TITRE_VENDUS = 'Couteaux vendus';
 
   gammesDefinitions = [...GAMMES, this.TITRE_VENDUS].map((title, i) => ({ title, value: String(i) }));

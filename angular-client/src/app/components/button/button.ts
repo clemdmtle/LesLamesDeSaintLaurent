@@ -4,7 +4,10 @@ import { NgClass } from '@angular/common'; // Import standard
 export enum ButtonTypeEnum {
   PRIMARY = 'primary',
   SECONDARY = 'secondary',
-  TERTIARY = 'tertiary'
+  TERTIARY = 'tertiary',
+  UPDATE = 'update',
+  DELETE = 'delete',
+  SOLD = 'sold'
 }
 
 @Component({
