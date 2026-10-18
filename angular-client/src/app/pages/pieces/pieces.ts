@@ -6,6 +6,7 @@ import { ModalCouteau } from '../../components/modal-couteau/modal-couteau';
 import { CouteauService } from '../../services/couteau-service';
 import { GAMMES } from '../../types/gamme.enum';
 import { AuthService } from '../../services/auth-service';
+import { Couteau } from '../../types/couteau.type';
 
 @Component({
   selector: 'app-pieces',
@@ -17,29 +18,47 @@ export class Pieces implements OnInit {
   couteauService = inject(CouteauService);
   authService = inject(AuthService);
   isModalVisible = signal<boolean>(false);
+  couteauEnEdition = signal<Couteau | null>(null);
   readonly ButtonTypeEnum = ButtonTypeEnum;
 
-  ngOnInit(){
+  ngOnInit() {
     this.couteauService.chargerCouteaux();
   }
 
+  // Création : modale vide
   openModal() {
+    this.couteauEnEdition.set(null);
     this.isModalVisible.set(true);
+  }
+
+  // Modification : modale pré-remplie avec le couteau choisi
+  modifierCouteau(couteau: Couteau) {
+    this.couteauEnEdition.set(couteau);
+    this.isModalVisible.set(true);
+  }
+
+  supprimerCouteau(couteau: Couteau) {
+    if (!confirm(`Supprimer définitivement ce couteau (${couteau.gamme}, lame ${couteau.lame}) ?`)) {
+      return;
+    }
+    this.couteauService.supprimer(couteau.id).subscribe({
+      error: (err) => alert(err.error?.message || 'Erreur lors de la suppression.'),
+    });
   }
 
   readonly TITRE_VENDUS = 'Couteaux vendus';
 
-gammesDefinitions = [...GAMMES, this.TITRE_VENDUS].map((title, value) => ({ title, value }));
+  gammesDefinitions = [...GAMMES, this.TITRE_VENDUS].map((title, i) => ({ title, value: String(i) }));
 
-tabs = computed(() => {
-  const couteaux = this.couteauService.couteaux$();
-  return this.gammesDefinitions.map(def => ({
-    ...def,
-    couteaux: couteaux.filter(c =>
-      def.title === this.TITRE_VENDUS
-        ? !c.estDisponible
-        : c.gamme === def.title && c.estDisponible
-    )
-  }));
-});
+  tabs = computed(() => {
+    const couteaux = this.couteauService.couteaux$();
+    return this.gammesDefinitions.map(def => ({
+      ...def,
+      couteaux: couteaux.filter(c =>
+        def.title === this.TITRE_VENDUS
+          ? !c.estDisponible
+          : c.gamme === def.title && c.estDisponible
+      ),
+    }));
+  });
 }

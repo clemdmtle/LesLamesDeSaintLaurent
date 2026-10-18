@@ -21,6 +21,12 @@
     font-family: 'Inter', sans-serif;
     background-color: var(--color-marron-medium);
     color: var(--color-marron-dark);
+    --p-checkbox-checked-background: var(--color-marron-medium);
+    --p-checkbox-checked-border-color: var(--color-marron-medium);
+    --p-checkbox-checked-hover-background: var(--color-marron-dark);
+    --p-checkbox-checked-hover-border-color: var(--color-marron-dark);
+    --p-inputtext-focus-border-color: var(--color-marron-medium);
+    --p-select-focus-border-color: var(--color-marron-medium);
   }
 }
 

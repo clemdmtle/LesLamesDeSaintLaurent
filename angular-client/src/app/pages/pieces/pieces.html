@@ -17,12 +17,14 @@
                     <div class="flex flex-row flex-wrap justify-center gap-10">
                         @for (couteau of tab.couteaux; track couteau.id) {
                             <app-card-couteau
-                                [image]="couteau.image"
+                                [images]="couteau.images"
                                 [lame]="couteau.lame"
                                 [garde]="couteau.garde"
                                 [manche]="couteau.manche"
                                 [etui]="couteau.etui"
                                 [prix]="couteau.prix"
+                                (modifier)="modifierCouteau(couteau)"
+                                (supprimer)="supprimerCouteau(couteau)"
                             ></app-card-couteau>
                         }
                     </div>
@@ -32,4 +34,4 @@
     </p-accordion>
 </div>
 
-<app-modal-couteau [(visible)]="isModalVisible"></app-modal-couteau>
+<app-modal-couteau [(visible)]="isModalVisible" [couteau]="couteauEnEdition()"></app-modal-couteau>

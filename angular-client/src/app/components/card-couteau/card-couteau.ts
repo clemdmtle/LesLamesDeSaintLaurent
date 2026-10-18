@@ -1,27 +1,31 @@
-import { Component, input, signal } from '@angular/core';
+import { Component, computed, input, inject, output } from '@angular/core';
 import { CardModule } from 'primeng/card';
 import { GalleriaModule } from 'primeng/galleria';
+import { AuthService } from '../../services/auth-service';
+import { ButtonTypeEnum, Button } from '../../components/button/button';
 
 @Component({
   selector: 'app-card-couteau',
-  imports: [CardModule, GalleriaModule],
+  imports: [CardModule, GalleriaModule, Button],
   templateUrl: './card-couteau.html',
   styleUrl: './card-couteau.css',
 })
 export class CardCouteau {
-  image = input<string>("/bowie1.avif");
-  image2 = input<string>("/couteau-accueil.avif");
+  readonly authService = inject(AuthService);
+  readonly ButtonTypeEnum = ButtonTypeEnum;
+
+  images = input<string[]>([]);
   lame = input<string>();
   garde = input<string>();
   manche = input<string>();
   etui = input<string>();
-  prix = input<number>();
-  images = signal<{ itemImageSrc: string; thumbnailImageSrc: string }[]>([]);
+  prix = input<number | null>();
 
-  ngOnInit(){
-    this.images.set([
-      { itemImageSrc: this.image(), thumbnailImageSrc: this.image() },
-      { itemImageSrc: this.image2(), thumbnailImageSrc: this.image2() }
-    ]);
-  }
+  // La carte ne gère ni la modale ni la suppression : elle prévient son parent
+  modifier = output<void>();
+  supprimer = output<void>();
+
+  galerie = computed(() =>
+    this.images().map(src => ({ itemImageSrc: src, thumbnailImageSrc: src }))
+  );
 }
