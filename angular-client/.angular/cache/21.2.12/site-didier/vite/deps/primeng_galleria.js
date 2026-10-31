@@ -1,17 +1,17 @@
 import {
   FocusTrap
-} from "./chunk-RRHPVVER.js";
+} from "./chunk-2OCA7D25.js";
 import {
   blockBodyScroll,
   unblockBodyScroll
-} from "./chunk-LWKEFXOB.js";
+} from "./chunk-NYIC7U6H.js";
 import {
   MotionDirective,
   MotionModule
-} from "./chunk-3MP3EIM7.js";
+} from "./chunk-B6TMEIT4.js";
 import {
   zindexutils
-} from "./chunk-5465J2CB.js";
+} from "./chunk-FUJMFW5B.js";
 import {
   ChevronDownIcon,
   ChevronLeftIcon,
@@ -19,33 +19,23 @@ import {
   ChevronUpIcon,
   Ripple,
   TimesIcon
-} from "./chunk-5GH7DF3G.js";
-import "./chunk-6MFAAARU.js";
+} from "./chunk-P7ZXTTEH.js";
+import "./chunk-QGYBOUHA.js";
 import {
   BaseComponent,
   PARENT_INSTANCE
-} from "./chunk-KRQ2TLHU.js";
-import {
-  BaseStyle
-} from "./chunk-3AN67WTB.js";
+} from "./chunk-TIEOV2LE.js";
 import {
   Bind,
   BindModule
-} from "./chunk-VUNGXHGJ.js";
+} from "./chunk-4RGE2VFV.js";
+import {
+  BaseStyle
+} from "./chunk-ECKO6NOJ.js";
 import {
   PrimeTemplate,
   SharedModule
-} from "./chunk-KTRLJJPP.js";
-import {
-  CommonModule,
-  NgClass,
-  NgForOf,
-  NgIf,
-  NgStyle,
-  NgTemplateOutlet,
-  isPlatformBrowser
-} from "./chunk-222ST2KG.js";
-import "./chunk-VCFNMX7P.js";
+} from "./chunk-ADWFNVLT.js";
 import {
   M,
   P,
@@ -55,7 +45,17 @@ import {
   bt,
   s2 as s,
   te
-} from "./chunk-RURUYWNL.js";
+} from "./chunk-XXQSM2KF.js";
+import {
+  CommonModule,
+  NgClass,
+  NgForOf,
+  NgIf,
+  NgStyle,
+  NgTemplateOutlet,
+  isPlatformBrowser
+} from "./chunk-4C53UHYA.js";
+import "./chunk-R6MSLRRO.js";
 import {
   ChangeDetectionStrategy,
   Component,
@@ -118,17 +118,17 @@ import {
   ɵɵtemplate,
   ɵɵtemplateRefExtractor,
   ɵɵviewQuery
-} from "./chunk-LXDX5MDC.js";
-import "./chunk-WTSFMAQ4.js";
-import "./chunk-3W64ZOM6.js";
+} from "./chunk-BLBU6XHV.js";
+import "./chunk-7LOLSFIS.js";
+import "./chunk-VPPYBLI2.js";
 import {
   __spreadValues
 } from "./chunk-GOMI4DH3.js";
 
-// node_modules/@primeuix/styles/dist/galleria/index.mjs
+// ../../../node_modules/@primeuix/styles/dist/galleria/index.mjs
 var style = "\n    .p-galleria {\n        overflow: hidden;\n        border-style: solid;\n        border-width: dt('galleria.border.width');\n        border-color: dt('galleria.border.color');\n        border-radius: dt('galleria.border.radius');\n    }\n\n    .p-galleria-content {\n        display: flex;\n        flex-direction: column;\n    }\n\n    .p-galleria-items-container {\n        display: flex;\n        flex-direction: column;\n        position: relative;\n    }\n\n    .p-galleria-items {\n        position: relative;\n        display: flex;\n        height: 100%;\n    }\n\n    .p-galleria-nav-button {\n        position: absolute !important;\n        top: 50%;\n        display: inline-flex;\n        justify-content: center;\n        align-items: center;\n        overflow: hidden;\n        background: dt('galleria.nav.button.background');\n        color: dt('galleria.nav.button.color');\n        width: dt('galleria.nav.button.size');\n        height: dt('galleria.nav.button.size');\n        transition:\n            background dt('galleria.transition.duration'),\n            color dt('galleria.transition.duration'),\n            outline-color dt('galleria.transition.duration'),\n            box-shadow dt('galleria.transition.duration');\n        margin: calc(-1 * calc(dt('galleria.nav.button.size')) / 2) dt('galleria.nav.button.gutter') 0 dt('galleria.nav.button.gutter');\n        padding: 0;\n        user-select: none;\n        border: 0 none;\n        cursor: pointer;\n        outline-color: transparent;\n    }\n\n    .p-galleria-nav-button:not(.p-disabled):hover {\n        background: dt('galleria.nav.button.hover.background');\n        color: dt('galleria.nav.button.hover.color');\n    }\n\n    .p-galleria-nav-button:not(.p-disabled):focus-visible {\n        box-shadow: dt('galleria.nav.button.focus.ring.shadow');\n        outline: dt('galleria.nav.button.focus.ring.width') dt('galleria.nav.button.focus.ring.style') dt('galleria.nav.button.focus.ring.color');\n        outline-offset: dt('galleria.nav.button.focus.ring.offset');\n    }\n\n    .p-galleria-next-icon,\n    .p-galleria-prev-icon {\n        font-size: dt('galleria.nav.icon.size');\n        width: dt('galleria.nav.icon.size');\n        height: dt('galleria.nav.icon.size');\n    }\n\n    .p-galleria-prev-button {\n        border-radius: dt('galleria.nav.button.prev.border.radius');\n        left: 0;\n    }\n\n    .p-galleria-next-button {\n        border-radius: dt('galleria.nav.button.next.border.radius');\n        right: 0;\n    }\n\n    .p-galleria-prev-button:dir(rtl) {\n        left: auto;\n        right: 0;\n        transform: rotate(180deg);\n    }\n\n    .p-galleria-next-button:dir(rtl) {\n        right: auto;\n        left: 0;\n        transform: rotate(180deg);\n    }\n\n    .p-galleria-item {\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        height: 100%;\n        width: 100%;\n    }\n\n    .p-galleria-hover-navigators .p-galleria-nav-button {\n        pointer-events: none;\n        opacity: 0;\n        transition: opacity dt('galleria.transition.duration') ease-in-out;\n    }\n\n    .p-galleria-hover-navigators .p-galleria-items-container:hover .p-galleria-nav-button {\n        pointer-events: all;\n        opacity: 1;\n    }\n\n    .p-galleria-hover-navigators .p-galleria-items-container:hover .p-galleria-nav-button.p-disabled {\n        pointer-events: none;\n    }\n\n    .p-galleria-caption {\n        position: absolute;\n        bottom: 0;\n        left: 0;\n        width: 100%;\n        background: dt('galleria.caption.background');\n        color: dt('galleria.caption.color');\n        padding: dt('galleria.caption.padding');\n    }\n\n    .p-galleria-thumbnails {\n        display: flex;\n        flex-direction: column;\n        overflow: auto;\n        flex-shrink: 0;\n    }\n\n    .p-galleria-thumbnail-nav-button {\n        align-self: center;\n        flex: 0 0 auto;\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        overflow: hidden;\n        position: relative;\n        margin: 0 dt('galleria.thumbnail.nav.button.gutter');\n        padding: 0;\n        border: none;\n        user-select: none;\n        cursor: pointer;\n        background: transparent;\n        color: dt('galleria.thumbnail.nav.button.color');\n        width: dt('galleria.thumbnail.nav.button.size');\n        height: dt('galleria.thumbnail.nav.button.size');\n        transition:\n            background dt('galleria.transition.duration'),\n            color dt('galleria.transition.duration'),\n            outline-color dt('galleria.transition.duration');\n        outline-color: transparent;\n        border-radius: dt('galleria.thumbnail.nav.button.border.radius');\n    }\n\n    .p-galleria-thumbnail-nav-button:hover {\n        background: dt('galleria.thumbnail.nav.button.hover.background');\n        color: dt('galleria.thumbnail.nav.button.hover.color');\n    }\n\n    .p-galleria-thumbnail-nav-button:focus-visible {\n        box-shadow: dt('galleria.thumbnail.nav.button.focus.ring.shadow');\n        outline: dt('galleria.thumbnail.nav.button.focus.ring.width') dt('galleria.thumbnail.nav.button.focus.ring.style') dt('galleria.thumbnail.nav.button.focus.ring.color');\n        outline-offset: dt('galleria.thumbnail.nav.button.focus.ring.offset');\n    }\n\n    .p-galleria-thumbnail-nav-button .p-galleria-thumbnail-next-icon,\n    .p-galleria-thumbnail-nav-button .p-galleria-thumbnail-prev-icon {\n        font-size: dt('galleria.thumbnail.nav.button.icon.size');\n        width: dt('galleria.thumbnail.nav.button.icon.size');\n        height: dt('galleria.thumbnail.nav.button.icon.size');\n    }\n\n    .p-galleria-thumbnails-content {\n        display: flex;\n        flex-direction: row;\n        background: dt('galleria.thumbnails.content.background');\n        padding: dt('galleria.thumbnails.content.padding');\n    }\n\n    .p-galleria-thumbnails-viewport {\n        overflow: hidden;\n        width: 100%;\n    }\n\n    .p-galleria:not(.p-galleria-thumbnails-right):not(.p-galleria-thumbnails-left) .p-galleria-thumbnail-prev-button:dir(rtl),\n    .p-galleria:not(.p-galleria-thumbnails-right):not(.p-galleria-thumbnails-left) .p-galleria-thumbnail-next-button:dir(rtl) {\n        transform: rotate(180deg);\n    }\n\n    .p-galleria-thumbnail-items {\n        display: flex;\n    }\n\n    .p-galleria-thumbnail-items:dir(rtl) {\n        flex-direction: row-reverse;\n    }\n\n    .p-galleria-thumbnail-item {\n        overflow: auto;\n        display: flex;\n        align-items: center;\n        justify-content: center;\n        cursor: pointer;\n        opacity: 0.5;\n    }\n\n    .p-galleria-thumbnail {\n        outline-color: transparent;\n    }\n\n    .p-galleria-thumbnail-item:hover {\n        opacity: 1;\n        transition: opacity 0.3s;\n    }\n\n    .p-galleria-thumbnail-item-current {\n        opacity: 1;\n    }\n\n    .p-galleria-thumbnails-left .p-galleria-content,\n    .p-galleria-thumbnails-right .p-galleria-content {\n        flex-direction: row;\n    }\n\n    .p-galleria-thumbnails-left .p-galleria-items-container,\n    .p-galleria-thumbnails-right .p-galleria-items-container {\n        flex-direction: row;\n    }\n\n    .p-galleria-thumbnails-left .p-galleria-items-container,\n    .p-galleria-thumbnails-top .p-galleria-items-container {\n        order: 2;\n    }\n\n    .p-galleria-thumbnails-left .p-galleria-thumbnails,\n    .p-galleria-thumbnails-top .p-galleria-thumbnails {\n        order: 1;\n    }\n\n    .p-galleria-thumbnails-left .p-galleria-thumbnails-content,\n    .p-galleria-thumbnails-right .p-galleria-thumbnails-content {\n        flex-direction: column;\n        flex-grow: 1;\n    }\n\n    .p-galleria-thumbnails-left .p-galleria-thumbnail-items,\n    .p-galleria-thumbnails-right .p-galleria-thumbnail-items {\n        flex-direction: column;\n        height: 100%;\n    }\n\n    .p-galleria-indicator-list {\n        display: flex;\n        align-items: center;\n        justify-content: center;\n        padding: dt('galleria.indicator.list.padding');\n        gap: dt('galleria.indicator.list.gap');\n        margin: 0;\n        list-style: none;\n    }\n\n    .p-galleria-indicator-button {\n        display: inline-flex;\n        align-items: center;\n        background: dt('galleria.indicator.button.background');\n        width: dt('galleria.indicator.button.width');\n        height: dt('galleria.indicator.button.height');\n        transition:\n            background dt('galleria.transition.duration'),\n            color dt('galleria.transition.duration'),\n            outline-color dt('galleria.transition.duration'),\n            box-shadow dt('galleria.transition.duration');\n        outline-color: transparent;\n        border-radius: dt('galleria.indicator.button.border.radius');\n        margin: 0;\n        padding: 0;\n        border: none;\n        user-select: none;\n        cursor: pointer;\n    }\n\n    .p-galleria-indicator-button:hover {\n        background: dt('galleria.indicator.button.hover.background');\n    }\n\n    .p-galleria-indicator-button:focus-visible {\n        box-shadow: dt('galleria.indicator.button.focus.ring.shadow');\n        outline: dt('galleria.indicator.button.focus.ring.width') dt('galleria.indicator.button.focus.ring.style') dt('galleria.indicator.button.focus.ring.color');\n        outline-offset: dt('galleria.indicator.button.focus.ring.offset');\n    }\n\n    .p-galleria-indicator-active .p-galleria-indicator-button {\n        background: dt('galleria.indicator.button.active.background');\n    }\n\n    .p-galleria-indicators-left .p-galleria-items-container,\n    .p-galleria-indicators-right .p-galleria-items-container {\n        flex-direction: row;\n        align-items: center;\n    }\n\n    .p-galleria-indicators-left .p-galleria-items,\n    .p-galleria-indicators-top .p-galleria-items {\n        order: 2;\n    }\n\n    .p-galleria-indicators-left .p-galleria-indicator-list,\n    .p-galleria-indicators-top .p-galleria-indicator-list {\n        order: 1;\n    }\n\n    .p-galleria-indicators-left .p-galleria-indicator-list,\n    .p-galleria-indicators-right .p-galleria-indicator-list {\n        flex-direction: column;\n    }\n\n    .p-galleria-inset-indicators .p-galleria-indicator-list {\n        position: absolute;\n        display: flex;\n        z-index: 1;\n        background: dt('galleria.inset.indicator.list.background');\n    }\n\n    .p-galleria-inset-indicators .p-galleria-indicator-button {\n        background: dt('galleria.inset.indicator.button.background');\n    }\n\n    .p-galleria-inset-indicators .p-galleria-indicator-button:hover {\n        background: dt('galleria.inset.indicator.button.hover.background');\n    }\n\n    .p-galleria-inset-indicators .p-galleria-indicator-active .p-galleria-indicator-button {\n        background: dt('galleria.inset.indicator.button.active.background');\n    }\n\n    .p-galleria-inset-indicators.p-galleria-indicators-top .p-galleria-indicator-list {\n        top: 0;\n        left: 0;\n        width: 100%;\n        align-items: flex-start;\n    }\n\n    .p-galleria-inset-indicators.p-galleria-indicators-right .p-galleria-indicator-list {\n        right: 0;\n        top: 0;\n        height: 100%;\n        align-items: flex-end;\n    }\n\n    .p-galleria-inset-indicators.p-galleria-indicators-bottom .p-galleria-indicator-list {\n        bottom: 0;\n        left: 0;\n        width: 100%;\n        align-items: flex-end;\n    }\n\n    .p-galleria-inset-indicators.p-galleria-indicators-left .p-galleria-indicator-list {\n        left: 0;\n        top: 0;\n        height: 100%;\n        align-items: flex-start;\n    }\n\n    .p-galleria-mask {\n        position: fixed;\n        top: 0;\n        left: 0;\n        width: 100%;\n        height: 100%;\n        display: flex;\n        align-items: center;\n        justify-content: center;\n    }\n\n    .p-galleria-close-button {\n        position: absolute !important;\n        top: 0;\n        right: 0;\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        overflow: hidden;\n        margin: dt('galleria.close.button.gutter');\n        background: dt('galleria.close.button.background');\n        color: dt('galleria.close.button.color');\n        width: dt('galleria.close.button.size');\n        height: dt('galleria.close.button.size');\n        padding: 0;\n        border: none;\n        user-select: none;\n        cursor: pointer;\n        border-radius: dt('galleria.close.button.border.radius');\n        outline-color: transparent;\n        transition:\n            background dt('galleria.transition.duration'),\n            color dt('galleria.transition.duration'),\n            outline-color dt('galleria.transition.duration');\n    }\n\n    .p-galleria-close-icon {\n        font-size: dt('galleria.close.button.icon.size');\n        width: dt('galleria.close.button.icon.size');\n        height: dt('galleria.close.button.icon.size');\n    }\n\n    .p-galleria-close-button:hover {\n        background: dt('galleria.close.button.hover.background');\n        color: dt('galleria.close.button.hover.color');\n    }\n\n    .p-galleria-close-button:focus-visible {\n        box-shadow: dt('galleria.close.button.focus.ring.shadow');\n        outline: dt('galleria.close.button.focus.ring.width') dt('galleria.close.button.focus.ring.style') dt('galleria.close.button.focus.ring.color');\n        outline-offset: dt('galleria.close.button.focus.ring.offset');\n    }\n\n    .p-galleria-mask .p-galleria-nav-button {\n        position: fixed;\n        top: 50%;\n    }\n\n       .p-items-hidden .p-galleria-thumbnail-item {\n        visibility: hidden;\n    }\n\n    .p-items-hidden .p-galleria-thumbnail-item.p-galleria-thumbnail-item-active {\n        visibility: visible;\n    }\n\n    .p-galleria-enter-active {\n        animation: p-animate-galleria-enter 300ms cubic-bezier(.19,1,.22,1);\n    }\n\n    .p-galleria-leave-active {\n        animation: p-animate-galleria-leave 300ms cubic-bezier(.19,1,.22,1);\n    }\n\n    .p-galleria-enter-active .p-galleria-nav-button {\n        opacity: 0;\n    }\n\n    @keyframes p-animate-galleria-enter {\n        from {\n            opacity: 0;\n            transform: scale(0.93);\n        }\n    }\n\n    @keyframes p-animate-galleria-leave {\n        from {\n            opacity: 1;\n            transform: scale(1);\n        }\n        to {\n            opacity: 0;\n            transform: scale(0.93);\n        }\n    }\n";
 
-// node_modules/primeng/fesm2022/primeng-galleria.mjs
+// ../../../node_modules/primeng/fesm2022/primeng-galleria.mjs
 var _c0 = ["header"];
 var _c1 = ["footer"];
 var _c2 = ["indicator"];

@@ -5,8 +5,7 @@ export type Evenement = {
     ville: string;
     date: string;
     heure: string;
-    photo_1: string;
-    photo_2: string;
-    photo_3: string;
+    images: string[];
+    photos: string[];
     statut: string;
 }

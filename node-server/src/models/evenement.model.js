@@ -19,7 +19,7 @@ type:DataTypes.STRING,
 allowNull:false
 },
 
-description:DataTypes.TEXT,
+description:{type:DataTypes.TEXT, allowNull: true},
 
 ville:DataTypes.STRING,
 
@@ -27,9 +27,9 @@ date:DataTypes.DATEONLY,
 
 heure:DataTypes.TIME,
 
-photo_1:DataTypes.STRING,
-photo_2:DataTypes.STRING,
-photo_3:DataTypes.STRING,
+photo_1:{type:DataTypes.STRING, allowNull: true},
+photo_2:{type:DataTypes.STRING, allowNull: true},
+photo_3:{type:DataTypes.STRING, allowNull: true},
 
 statut:DataTypes.STRING
 

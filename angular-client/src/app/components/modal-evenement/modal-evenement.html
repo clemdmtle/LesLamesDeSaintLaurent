@@ -1,0 +1,103 @@
+<p-dialog
+  [visible]="visible()"
+  (visibleChange)="visible.set($event)"
+  [modal]="true"
+  [draggable]="false"
+  [header]="titre()"
+  [style]="{ width: '44rem' }"
+  [breakpoints]="{ '700px': '95vw' }"
+>
+  <form [formGroup]="evenementForm" class="text-marron-dark">
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4">
+
+      <div class="flex flex-col gap-1.5 sm:col-span-2">
+        <label for="titre" class="text-sm font-medium">Titre</label>
+        <input pInputText id="titre" formControlName="titre" class="w-full" />
+        @if (evenementForm.get('titre')?.invalid && evenementForm.get('titre')?.touched) {
+          <small class="text-red-500">Le titre est requis.</small>
+        }
+      </div>
+
+      <div class="flex flex-col gap-1.5 sm:col-span-2">
+        <label for="description" class="text-sm font-medium">Description</label>
+        <textarea pTextarea id="description" formControlName="description" rows="4" class="w-full"></textarea>
+      </div>
+
+      <div class="flex flex-col gap-1.5 sm:col-span-2">
+        <label for="ville" class="text-sm font-medium">Ville</label>
+        <input pInputText id="ville" formControlName="ville" class="w-full" />
+      </div>
+
+      <div class="flex flex-col gap-1.5">
+        <label for="date" class="text-sm font-medium">Date</label>
+        <input pInputText id="date" type="date" formControlName="date" class="w-full" />
+        @if (evenementForm.get('date')?.invalid && evenementForm.get('date')?.touched) {
+          <small class="text-red-500">La date est requise.</small>
+        }
+      </div>
+
+      <div class="flex flex-col gap-1.5">
+        <label for="heure" class="text-sm font-medium">Heure</label>
+        <input pInputText id="heure" type="time" formControlName="heure" class="w-full" />
+      </div>
+
+      <div class="flex flex-col gap-1.5 min-w-0">
+        <label for="photos" class="text-sm font-medium">Photos ({{ nbPhotos() }}/3)</label>
+        <input
+          id="photos"
+          type="file"
+          accept="image/jpeg,image/png,image/webp,image/avif"
+          multiple
+          [disabled]="nbPhotos() >= 3"
+          (change)="onFichiers($event)"
+          class="w-full text-sm file:mr-3 file:cursor-pointer file:rounded-lg file:border-0 file:bg-marron-medium file:px-3 file:py-1.5 file:text-white hover:file:bg-marron-dark"
+        />
+
+        @if (nbPhotos() > 0) {
+          <div class="flex flex-wrap gap-2">
+            @for (p of photosExistantes(); track p.chemin; let i = $index) {
+              <span class="inline-flex items-center gap-1 rounded-full bg-beige-medium py-1 pl-1 pr-3 text-xs">
+                <img [src]="p.url" alt="Photo actuelle" class="h-6 w-6 rounded-full object-cover" />
+                <span>Photo {{ i + 1 }}</span>
+                <button type="button" [attr.aria-label]="'Retirer la photo ' + (i + 1)" (click)="retirerExistante(i)">×</button>
+              </span>
+            }
+            @for (f of fichiers(); track $index) {
+              <span class="inline-flex items-center gap-1 rounded-full bg-beige-medium px-3 py-1 text-xs">
+                <span class="max-w-[8rem] truncate">{{ f.name }}</span>
+                <button type="button" [attr.aria-label]="'Retirer ' + f.name" (click)="retirerFichier($index)">×</button>
+              </span>
+            }
+          </div>
+        }
+      </div>
+
+      @if (erreur()) {
+        <small class="text-red-500 sm:col-span-2">{{ erreur() }}</small>
+      }
+
+    </div>
+  </form>
+
+  <ng-template pTemplate="footer">
+    <button
+      type="button"
+      pButton
+      severity="secondary"
+      variant="outlined"
+      class="border-marron-medium! text-marron-medium!"
+      (click)="close()"
+    >
+      Annuler
+    </button>
+    <button
+      type="button"
+      pButton
+      class="bg-marron-medium! border-marron-medium! text-white! hover:bg-marron-dark!"
+      [disabled]="envoiEnCours()"
+      (click)="save()"
+    >
+      {{ envoiEnCours() ? 'Envoi...' : (estEdition() ? 'Mettre à jour' : 'Enregistrer') }}
+    </button>
+  </ng-template>
+</p-dialog>

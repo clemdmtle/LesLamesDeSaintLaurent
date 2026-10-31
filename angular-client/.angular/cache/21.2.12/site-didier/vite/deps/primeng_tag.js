@@ -1,25 +1,25 @@
 import {
   BaseComponent,
   PARENT_INSTANCE
-} from "./chunk-KRQ2TLHU.js";
-import {
-  BaseStyle
-} from "./chunk-3AN67WTB.js";
+} from "./chunk-TIEOV2LE.js";
 import {
   Bind
-} from "./chunk-VUNGXHGJ.js";
+} from "./chunk-4RGE2VFV.js";
+import {
+  BaseStyle
+} from "./chunk-ECKO6NOJ.js";
 import {
   PrimeTemplate,
   SharedModule
-} from "./chunk-KTRLJJPP.js";
+} from "./chunk-ADWFNVLT.js";
+import "./chunk-XXQSM2KF.js";
 import {
   CommonModule,
   NgClass,
   NgIf,
   NgTemplateOutlet
-} from "./chunk-222ST2KG.js";
-import "./chunk-VCFNMX7P.js";
-import "./chunk-RURUYWNL.js";
+} from "./chunk-4C53UHYA.js";
+import "./chunk-R6MSLRRO.js";
 import {
   ChangeDetectionStrategy,
   Component,
@@ -59,15 +59,15 @@ import {
   ɵɵtemplate,
   ɵɵtext,
   ɵɵtextInterpolate
-} from "./chunk-LXDX5MDC.js";
-import "./chunk-WTSFMAQ4.js";
-import "./chunk-3W64ZOM6.js";
+} from "./chunk-BLBU6XHV.js";
+import "./chunk-7LOLSFIS.js";
+import "./chunk-VPPYBLI2.js";
 import "./chunk-GOMI4DH3.js";
 
-// node_modules/@primeuix/styles/dist/tag/index.mjs
+// ../../../node_modules/@primeuix/styles/dist/tag/index.mjs
 var style = "\n    .p-tag {\n        display: inline-flex;\n        align-items: center;\n        justify-content: center;\n        background: dt('tag.primary.background');\n        color: dt('tag.primary.color');\n        font-size: dt('tag.font.size');\n        font-weight: dt('tag.font.weight');\n        padding: dt('tag.padding');\n        border-radius: dt('tag.border.radius');\n        gap: dt('tag.gap');\n    }\n\n    .p-tag-icon {\n        font-size: dt('tag.icon.size');\n        width: dt('tag.icon.size');\n        height: dt('tag.icon.size');\n    }\n\n    .p-tag-rounded {\n        border-radius: dt('tag.rounded.border.radius');\n    }\n\n    .p-tag-success {\n        background: dt('tag.success.background');\n        color: dt('tag.success.color');\n    }\n\n    .p-tag-info {\n        background: dt('tag.info.background');\n        color: dt('tag.info.color');\n    }\n\n    .p-tag-warn {\n        background: dt('tag.warn.background');\n        color: dt('tag.warn.color');\n    }\n\n    .p-tag-danger {\n        background: dt('tag.danger.background');\n        color: dt('tag.danger.color');\n    }\n\n    .p-tag-secondary {\n        background: dt('tag.secondary.background');\n        color: dt('tag.secondary.color');\n    }\n\n    .p-tag-contrast {\n        background: dt('tag.contrast.background');\n        color: dt('tag.contrast.color');\n    }\n";
 
-// node_modules/primeng/fesm2022/primeng-tag.mjs
+// ../../../node_modules/primeng/fesm2022/primeng-tag.mjs
 var _c0 = ["icon"];
 var _c1 = ["*"];
 function Tag_ng_container_1_span_1_Template(rf, ctx) {

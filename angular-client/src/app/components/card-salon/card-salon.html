@@ -1,23 +1,57 @@
 <div class="pb-4 p-8 flex items-center justify-center bg-fond">
-            <p-card header="{{titre()}}" [style]="{ width: '25rem', height: '700px', overflow: 'hidden', borderRadius: '1rem' }">
-                <ng-template #header>
-                    <p-galleria [value]="images()" [containerStyle]="{ width: '100%', height: '100%' }" [numVisible]="5">
-                        <ng-template #item let-item>
-                            <img [src]="item.itemImageSrc" class="w-full h-80 object-contain" />
-                        </ng-template>
-                        <ng-template #thumbnail let-item>
-                            <img [src]="item.thumbnailImageSrc" />
-                        </ng-template>
-                    </p-galleria>
-                    <div class="flex flex-row gap-2 mt-4 mb-0 mx-4">
-                        <app-tag [texte]="date()"></app-tag>
-                        <app-tag [texte]="heure()"></app-tag>
-                        <app-tag [texte]="ville()"></app-tag>
-                    </div>
-                </ng-template>
-                <div class="flex flex-col gap-2 text-md">
-                    <p>{{description()}}</p>
-                </div>
-
-            </p-card>
+    <p-card [style]="{ width: '25rem' }">
+        <ng-template #header>
+            <div class="relative">
+    @if (authService.estConnecte()) {
+        <div class="absolute right-3 top-3 z-20 flex gap-2">
+            <app-button [type]="ButtonTypeEnum.UPDATE" (click)="modifier.emit()" />
+            <app-button [type]="ButtonTypeEnum.DELETE" (click)="supprimer.emit()" />
         </div>
+    }
+
+    @if (galerie().length > 0) {
+        <p-galleria
+            [value]="galerie()"
+            [containerStyle]="{ width: '100%' }"
+            [numVisible]="3"
+            [showThumbnails]="galerie().length > 1"
+            [showItemNavigators]="galerie().length > 1"
+        >
+            <ng-template #item let-item>
+                <div class="flex h-72 w-full items-center justify-center overflow-hidden">
+                    <img [src]="item.itemImageSrc" alt="Photo de l'évènement" class="max-h-full max-w-full object-contain" />
+                </div>
+            </ng-template>
+            <ng-template #thumbnail let-item>
+                <img [src]="item.thumbnailImageSrc" alt="Miniature" class="h-14 w-14 object-cover" />
+            </ng-template>
+        </p-galleria>
+    } @else {
+        <div class="flex h-40 w-full items-center justify-center bg-beige-medium">
+            <i class="pi pi-calendar text-5xl text-marron-medium"></i>
+        </div>
+    }
+</div>
+        </ng-template>
+
+        <div class="flex flex-col gap-3 text-md">
+            <h3 class="font-opensans text-marron-dark text-2xl">{{ titre() }}</h3>
+
+            <div class="flex flex-row flex-wrap gap-2">
+                @if (date()) {
+                    <app-tag [texte]="dateFormatee()"></app-tag>
+                }
+                @if (heure()) {
+                    <app-tag [texte]="heureFormatee()"></app-tag>
+                }
+                @if (ville()) {
+                    <app-tag [texte]="ville()!"></app-tag>
+                }
+            </div>
+
+            @if (description()) {
+    <p>{{ description() }}</p>
+}
+        </div>
+    </p-card>
+</div>

@@ -1,17 +1,51 @@
-<h2 class="font-serif italic text-marron-dark text-4xl m-8 ml-2">Les évènements</h2>
+<div class="flex flex-row justify-between items-center mr-15">
+    <h2 class="font-serif italic text-marron-dark text-4xl m-8 ml-2">Les évènements</h2>
 
-<div class="flex flex-row flex-wrap justify-center gap-10">
-    @for (tab of tabs(); track tab.id){
-        <app-card-salon 
-        [titre]="tab.titre"
-        [description]="tab.description"
-        [ville]="tab.ville"
-        [date]="tab.date"
-        [heure]="tab.heure"
-        [image]="tab.photo_1"
-        [image2]="tab.photo_2"
-        [statut]="tab.statut"
-        />
+    @if (authService.estConnecte()) {
+        <app-button [type]="ButtonTypeEnum.PRIMARY" [iconOnly]="true" (click)="openModal()">
+            <i class="pi pi-plus text-xl"></i>
+        </app-button>
     }
 </div>
 
+<h3 class="font-serif italic text-marron-medium text-2xl mb-4 text-center">À venir</h3>
+
+@if (evenementsAVenir().length > 0) {
+    <div class="flex flex-row flex-wrap justify-center gap-10">
+        @for (evenement of evenementsAVenir(); track evenement.id) {
+            <app-card-salon
+                [titre]="evenement.titre"
+                [description]="evenement.description"
+                [ville]="evenement.ville"
+                [date]="evenement.date"
+                [heure]="evenement.heure"
+                [images]="evenement.images"
+                (modifier)="modifierEvenement(evenement)"
+                (supprimer)="supprimerEvenement(evenement)"
+            />
+        }
+    </div>
+} @else {
+    <p class="text-marron-medium text-center">Aucun évènement à venir pour le moment.</p>
+}
+
+@if (evenementsPasses().length > 0) {
+    <h3 class="font-serif italic text-marron-medium text-2xl mt-12 mb-4 text-center">Évènements passés</h3>
+
+    <div class="flex flex-row flex-wrap justify-center gap-10">
+        @for (evenement of evenementsPasses(); track evenement.id) {
+            <app-card-salon
+                [titre]="evenement.titre"
+                [description]="evenement.description"
+                [ville]="evenement.ville"
+                [date]="evenement.date"
+                [heure]="evenement.heure"
+                [images]="evenement.images"
+                (modifier)="modifierEvenement(evenement)"
+                (supprimer)="supprimerEvenement(evenement)"
+            />
+        }
+    </div>
+}
+
+<app-modal-evenement [(visible)]="isModalVisible" [evenement]="evenementEnEdition()"></app-modal-evenement>
