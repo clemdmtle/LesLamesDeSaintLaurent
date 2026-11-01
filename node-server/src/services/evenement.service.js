@@ -69,10 +69,6 @@ const updateEvenement = async (id, body, fichiers = []) => {
     const conservees = lireConservees(body).filter(c => anciennes.includes(c));
     const photos = construirePhotos(conservees, fichiers);
 
-    if (!photos.photo_1) {
-        throw erreur('Ajoute au moins une photo.', 400);
-    }
-
     await evenement.update({
     titre: body.titre,
     description: body.description || null,

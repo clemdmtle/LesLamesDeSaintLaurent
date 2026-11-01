@@ -78,10 +78,6 @@ export class ModalEvenement {
     const nouveaux = Array.from(input.files ?? []);
     input.value = ''; // permet de re-choisir le même fichier
 
-    if (this.nbPhotos() + nouveaux.length > MAX_PHOTOS) {
-      this.erreur.set(`${MAX_PHOTOS} photos maximum.`);
-      return;
-    }
     if (nouveaux.some(f => f.size > TAILLE_MAX)) {
       this.erreur.set('Chaque photo doit faire 5 Mo maximum.');
       return;

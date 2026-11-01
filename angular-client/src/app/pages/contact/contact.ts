@@ -8,12 +8,12 @@ import { ContactService } from '../../services/contact-service';
 
 // À REMPLACER par les vraies coordonnées
 const ADRESSE = {
-  nom: "Nom de l'atelier",
-  rue: '12 rue des Forgerons',
-  codePostal: '67000',
-  ville: 'Strasbourg',
-  telephone: '03 00 00 00 00',
-  email: 'contact@exemple.fr',
+  nom: "Lames de Saint Laurent",
+  rue: '47 rue de Bertraménil',
+  codePostal: '88000',
+  ville: 'Epinal',
+  telephone: '06 52 65 52 12',
+  email: 'd.moinel@hotmail.fr',
   horaires: 'Sur rendez-vous',
 };
 

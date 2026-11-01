@@ -70,4 +70,12 @@ export class Pieces implements OnInit {
       ),
     }));
   });
+
+  // Les 3 derniers couteaux ajoutés parmi ceux à vendre
+  nouveautes = computed(() =>
+    this.couteauService.couteaux$()
+      .filter(c => c.estDisponible)
+      .sort((a, b) => b.id - a.id)
+      .slice(0, 3)
+  );
 }

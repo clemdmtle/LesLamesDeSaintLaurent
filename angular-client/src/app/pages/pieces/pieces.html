@@ -8,27 +8,59 @@
     }
 </div>
 
+@if (nouveautes().length > 0) {
+    <section class="mb-12">
+        <h3 class="font-serif italic text-marron-medium text-2xl mb-4 text-center">Les nouveautés</h3>
+
+        <div class="flex flex-row flex-wrap justify-center gap-10">
+            @for (couteau of nouveautes(); track couteau.id) {
+                <app-card-couteau
+                    [images]="couteau.images"
+                    [lame]="couteau.lame"
+                    [garde]="couteau.garde"
+                    [manche]="couteau.manche"
+                    [etui]="couteau.etui"
+                    [prix]="couteau.prix"
+                    (modifier)="modifierCouteau(couteau)"
+                    (supprimer)="supprimerCouteau(couteau)"
+                    (rendreDisponible)="rendreDisponibleCouteau(couteau)"
+                ></app-card-couteau>
+            }
+        </div>
+    </section>
+}
+
 <div class="card">
     <p-accordion class="bg-fond!" [value]="['0']">
         @for (tab of tabs(); track tab.title) {
             <p-accordion-panel class="bg-fond!" [value]="tab.value">
                 <p-accordion-header class="bg-fond! font-lora! text-marron-medium!">{{ tab.title }}</p-accordion-header>
                 <p-accordion-content class="bg-fond!">
-                    <div class="flex flex-row flex-wrap justify-center gap-10">
-                        @for (couteau of tab.couteaux; track couteau.id) {
-                            <app-card-couteau
-                                [images]="couteau.images"
-                                [lame]="couteau.lame"
-                                [garde]="couteau.garde"
-                                [manche]="couteau.manche"
-                                [etui]="couteau.etui"
-                                [prix]="couteau.prix"
-                                (modifier)="modifierCouteau(couteau)"
-                                (supprimer)="supprimerCouteau(couteau)"
-                                (rendreDisponible)="rendreDisponibleCouteau(couteau)"
-                            ></app-card-couteau>
-                        }
-                    </div>
+                    @if (tab.couteaux.length === 0) {
+                        <p class="text-marron-medium text-center py-6">
+                            @if (tab.title === TITRE_VENDUS) {
+                                Aucun couteau vendu pour le moment.
+                            } @else {
+                                Aucun couteau disponible pour cette gamme pour le moment.
+                            }
+                        </p>
+                    } @else {
+                        <div class="flex flex-row flex-wrap justify-center gap-10">
+                            @for (couteau of tab.couteaux; track couteau.id) {
+                                <app-card-couteau
+                                    [images]="couteau.images"
+                                    [lame]="couteau.lame"
+                                    [garde]="couteau.garde"
+                                    [manche]="couteau.manche"
+                                    [etui]="couteau.etui"
+                                    [prix]="couteau.prix"
+                                    (modifier)="modifierCouteau(couteau)"
+                                    (supprimer)="supprimerCouteau(couteau)"
+                                    (rendreDisponible)="rendreDisponibleCouteau(couteau)"
+                                ></app-card-couteau>
+                            }
+                        </div>
+                    }
                 </p-accordion-content>
             </p-accordion-panel>
         }
