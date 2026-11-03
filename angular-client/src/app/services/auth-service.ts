@@ -19,7 +19,7 @@ export class AuthService {
   }
 
   verifierSession() {
-    this.http.get('{SERVEUR}/api/auth/me', { withCredentials: true }).subscribe({
+    this.http.get(`{SERVEUR}/api/auth/me`, { withCredentials: true }).subscribe({
       next: () => this.connecte.set(true),
       error: () => this.connecte.set(false)
     });
