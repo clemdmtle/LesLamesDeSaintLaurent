@@ -2,8 +2,9 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable, inject, signal } from '@angular/core';
 import { Evenement } from '../types/evenement.type'; 
 import { tap } from 'rxjs';
+import { environment } from '../../environments/environment';
 
-const SERVEUR = 'http://localhost:3000';
+const SERVEUR = environment.apiUrl;
 const API = `${SERVEUR}/api/evenements`;
 
 @Injectable({

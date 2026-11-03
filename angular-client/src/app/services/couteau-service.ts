@@ -3,8 +3,9 @@ import { HttpClient } from '@angular/common/http';
 import { tap } from 'rxjs';
 import { Couteau } from '../types/couteau.type';
 import { Gamme } from '../types/gamme.enum';
+import { environment } from '../../environments/environment';
 
-const SERVEUR = 'http://localhost:3000';
+const SERVEUR = environment.apiUrl;
 const API = `${SERVEUR}/api/couteaux`;
 
 @Injectable({

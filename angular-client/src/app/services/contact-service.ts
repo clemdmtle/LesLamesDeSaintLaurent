@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
+import { environment } from '../../environments/environment';
 
-const API = 'http://localhost:3000/api/contact';
+const API = environment.apiUrl;
 
 export interface MessageContact {
   nom: string;

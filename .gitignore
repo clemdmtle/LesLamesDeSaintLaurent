@@ -48,3 +48,4 @@ Thumbs.db
 #pour les photos :
 src/uploads/*
 !src/uploads/.gitkeep
+node_modules/
