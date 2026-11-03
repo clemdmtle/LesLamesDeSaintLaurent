@@ -11,15 +11,15 @@ export class AuthService {
   readonly estConnecte = this.connecte.asReadonly();
 
   login(email: string, password: string) {
-    return this.http.post(`{SERVEUR}/api/auth/login`, { email, password }, { withCredentials: true });
+    return this.http.post(`${SERVEUR}/api/auth/login`, { email, password }, { withCredentials: true });
   }
 
   logout() {
-    return this.http.post(`{SERVEUR}/api/auth/logout`, {}, { withCredentials: true });
+    return this.http.post(`${SERVEUR}/api/auth/logout`, {}, { withCredentials: true });
   }
 
   verifierSession() {
-    this.http.get(`{SERVEUR}/api/auth/me`, { withCredentials: true }).subscribe({
+    this.http.get(`${SERVEUR}/api/auth/me`, { withCredentials: true }).subscribe({
       next: () => this.connecte.set(true),
       error: () => this.connecte.set(false)
     });
